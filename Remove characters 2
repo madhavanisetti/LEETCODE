@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+import java.util.ArrayList; 
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner str =new Scanner(System.in);
+        String t="";
+        String s=str.nextLine();
+        String[] words=s.split(" ");
+        String s1=words[0];
+        String s2=words[1];
+        ArrayList<Character> c = new ArrayList<Character>();
+        for(int i=0;i<s2.length();i++)
+            c.add(s2.charAt(i));
+        for(int i=0;i<s1.length();i++)
+        {
+            if(!c.contains(s1.charAt(i)))
+                t+=String.valueOf(s1.charAt(i));
+            else
+                c.remove(c.indexOf(s1.charAt(i)));
+        }
+        System.out.println(t);
+    }
+}
