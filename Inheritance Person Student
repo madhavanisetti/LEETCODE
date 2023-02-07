@@ -1,0 +1,91 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+class Person{
+    private String fristname;
+    private String lastname;
+    public Person(String fname,String lname){
+        this.fristname=fname;
+        this.lastname=lname;
+    }
+    public String getfristname(){
+        return fristname;
+    }
+    public String getlastname(){
+        return lastname;
+    }
+   
+    
+    
+}
+class Student extends Person{
+    private int id;
+    private int [] array;
+    private int n;
+    private char grade;
+    public Student(String fname,String lname,int id){
+    super(fname,lname);
+    this.id=id;
+    }
+     public void marks(int [] array,int n){
+         this.array=new int[n];
+         int sum=0;
+         for(int i=0;i<n;i++){
+             sum=sum+array[i];
+         }
+         double avg=sum/n;
+         if(90<=avg && avg<=100){
+             grade='O';
+         }
+         else if(80<=avg && avg<90){
+             grade='E';
+         }
+         else if(70<=avg && avg<80){
+             grade='A';
+         }
+         else if(55<=avg && avg<70){
+             grade='P';
+         }
+         else if(40<=avg && avg<55){
+             grade='D';
+         }
+         else{
+           grade='T' ; 
+         }
+     }
+    public int getid(){
+        return id;
+    }
+    public char getgrade(){
+        return grade;
+    }
+    public String toString(){
+        return "Name"+":"+" "+super.getlastname()+", "+super.getfristname()+"\nID: "+id+"\nGrade: "+grade;
+    }
+  
+    
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+       
+        Scanner s=new Scanner(System.in);
+        Student su=new Student(s.next(),s.next(),Integer.parseInt(s.next()));
+        s.nextLine();
+        int n=Integer.parseInt(s.nextLine());
+        int [] k=new int[n];
+        for(int i=0;i<n;i++){
+            k[i]=s.nextInt();
+        }
+        su.marks(k,n);
+        System.out.println(su);
+        
+        
+        
+        
+        
+    }
+}
