@@ -1,0 +1,35 @@
+import java.util.*;
+public class Grade
+{
+    public static void main(String[] args)
+    {
+        Scanner marks = new Scanner(System.in);
+        int n = marks.nextInt();
+        int [] m = new int[n];
+        for(int i =0;i<n;i++)
+        {
+            m[i]=marks.nextInt();
+        }
+        for(int i =0;i<n;i++)
+        {
+            if(m[i]<38)
+            {
+                System.out.println(m[i]);
+            }
+            else
+            {
+                int a =m[i]/5;
+                a = a+1;
+                int b =a*5;
+                if(b-m[i]<3)
+                {
+                    System.out.println(b);
+                }
+                else
+                {
+                    System.out.println(m[i]);
+                }
+            }
+        }
+    }
+}
