@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class Dog{
+    private String name;
+    public Dog(String name){this.name = name;}
+    public String getName(){
+        return name;
+    }
+}
+class Greyhound extends Dog{
+    private String color;
+    private int weight;
+    Greyhound(String n,String co,int we){
+        super(n);
+        color=co;
+        weight=we;}
+        public String getColor(){
+            return color;
+        }
+        public int getWeight(){
+            return weight;
+        }
+    public String toString(){
+        return getName()+" is "+getColor()+" in color and his weight is "+getWeight()+"Kg";
+    }
+    }
+
+
+public class solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        String name = in.nextLine();
+        String color = in.nextLine();
+        int weight = in.nextInt();
+        Greyhound pup = new Greyhound(name, color, weight);
+        System.out.println(pup.getName());
+        System.out.println(pup.getColor());
+        System.out.println(pup.getWeight());
+        System.out.println(pup);
+        System.out.println("Superclass:"+pup.getClass().getSuperclass().getName());
+    }
+}
